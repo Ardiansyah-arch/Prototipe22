@@ -14,18 +14,18 @@
                     <p class="eyebrow">Assalamu'alaikum</p>
                     <h1>BU Maratus</h1>
                 </div>
-                <button class="profile-btn" aria-label="Profil">B</button>
+                <button class="profile-btn" id="open-settings" aria-label="Pengaturan alarm">⚙</button>
             </header>
 
             <section class="prayer-card">
                 <div class="prayer-card-top">
                     <span>Salat berikutnya</span>
-                    <span class="status-badge">2 jam lagi</span>
+                    <span class="status-badge" id="next-prayer-countdown">--</span>
                 </div>
                 <div class="next-prayer">
                     <div>
-                        <strong>Zuhur</strong>
-                        <small>11:45</small>
+                        <strong id="next-prayer-name">Zuhur</strong>
+                        <small id="next-prayer-time">11:45</small>
                     </div>
                     <div class="moon-icon" aria-hidden="true">☾</div>
                 </div>
@@ -37,41 +37,41 @@
                     <span id="prayer-progress">0/5</span>
                 </div>
                 <div class="checkbox-list prayer-list">
-                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Subuh</span><small>04:10</small></label>
-                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Zuhur</span><small>11:45</small></label>
-                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Asar</span><small>15:12</small></label>
-                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Magrib</span><small>17:55</small></label>
-                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Isya</span><small>19:05</small></label>
+                    <label><input type="checkbox" data-prayer="subuh"><span class="custom-check"></span><span>Subuh</span><small data-prayer-time="subuh">04:10</small></label>
+                    <label><input type="checkbox" data-prayer="zuhur"><span class="custom-check"></span><span>Zuhur</span><small data-prayer-time="zuhur">11:45</small></label>
+                    <label><input type="checkbox" data-prayer="asar"><span class="custom-check"></span><span>Asar</span><small data-prayer-time="asar">15:12</small></label>
+                    <label><input type="checkbox" data-prayer="magrib"><span class="custom-check"></span><span>Magrib</span><small data-prayer-time="magrib">17:55</small></label>
+                    <label><input type="checkbox" data-prayer="isya"><span class="custom-check"></span><span>Isya</span><small data-prayer-time="isya">19:05</small></label>
                 </div>
             </section>
         </div>
 
         <div class="screen" id="screen-jadwal">
             <header class="screen-header">
-                <p class="eyebrow">20 November 2026</p>
+                <p class="eyebrow" id="schedule-date"></p>
                 <h1>Jadwal Salat</h1>
             </header>
-            <div class="location">Bojonegoro, Jawa Timur</div>
+            <div class="location">Surakarta, Jawa Tengah</div>
             <section class="schedule-card">
                 <div class="schedule-item">
                     <div class="prayer-name"><span class="schedule-dot"></span><span>Subuh</span></div>
-                    <span class="time">04:10</span>
+                    <span class="time" data-schedule-time="subuh">04:10</span>
                 </div>
                 <div class="schedule-item">
                     <div class="prayer-name"><span class="schedule-dot"></span><span>Zuhur</span></div>
-                    <span class="time">11:45</span>
+                    <span class="time" data-schedule-time="zuhur">11:45</span>
                 </div>
                 <div class="schedule-item">
                     <div class="prayer-name"><span class="schedule-dot"></span><span>Asar</span></div>
-                    <span class="time">15:12</span>
+                    <span class="time" data-schedule-time="asar">15:12</span>
                 </div>
                 <div class="schedule-item">
                     <div class="prayer-name"><span class="schedule-dot"></span><span>Magrib</span></div>
-                    <span class="time">17:55</span>
+                    <span class="time" data-schedule-time="magrib">17:55</span>
                 </div>
                 <div class="schedule-item">
                     <div class="prayer-name"><span class="schedule-dot"></span><span>Isya</span></div>
-                    <span class="time">19:05</span>
+                    <span class="time" data-schedule-time="isya">19:05</span>
                 </div>
             </section>
         </div>
@@ -91,42 +91,43 @@
             </section>
             <section class="progress-section">
                 <div class="section-heading">
-                    <h2>Progres Hari Ini</h2>
-                    <span>45%</span>
+                    <h2>Progres 7 Hari</h2>
+                    <span id="tilawah-progress-label">0/7 hari</span>
                 </div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="progress-bar" role="progressbar" aria-label="Progres tilawah tujuh hari" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="progress-fill" id="tilawah-progress-fill"></div>
+                </div>
             </section>
             <section class="week-section">
-                <h2>Seminggu Terakhir</h2>
-                <div class="days">
-                    <div><span>M</span><i class="done"></i></div>
-                    <div><span>S</span><i class="done"></i></div>
-                    <div><span>S</span><i class="done"></i></div>
-                    <div><span>R</span><i class="done"></i></div>
-                    <div><span>K</span><i class="current"></i></div>
-                    <div><span>J</span><i></i></div>
-                    <div><span>S</span><i></i></div>
-                </div>
+                <h2>Hari yang terpenuhi</h2>
+                <div class="days" id="tilawah-days"></div>
             </section>
-            <button class="primary-btn">Tambah Catatan</button>
+            <button class="primary-btn" id="toggle-tilawah-day">Tandai Tilawah Hari Ini Selesai</button>
+            <button class="secondary-btn history-button" id="open-tilawah-history">Lihat Riwayat</button>
+            <button class="primary-btn" id="open-note">Tambah Catatan</button>
+            <p class="note-preview" id="note-preview" hidden></p>
         </div>
 
         <div class="screen" id="screen-target">
             <header class="screen-header">
-                <p class="eyebrow">November 2026</p>
+                <p class="eyebrow" id="target-date"></p>
                 <h1>Target Ibadah</h1>
             </header>
             <div class="target-summary">
                 <strong id="target-progress">0</strong>
-                <span>dari 4 target selesai</span>
+                <span id="target-total-label">dari 4 target selesai</span>
             </div>
             <div class="checkbox-list target-list">
-                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Salat Duha</span></label>
-                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Puasa Senin-Kamis</span></label>
-                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Zikir pagi</span></label>
-                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Sedekah</span></label>
+                <label><input type="checkbox" data-target data-target-name="Salat Duha"><span class="custom-check"></span><span>Salat Duha</span></label>
+                <label><input type="checkbox" data-target data-target-name="Puasa Senin-Kamis"><span class="custom-check"></span><span>Puasa Senin-Kamis</span></label>
+                <label><input type="checkbox" data-target data-target-name="Zikir pagi"><span class="custom-check"></span><span>Zikir pagi</span></label>
+                <label><input type="checkbox" data-target data-target-name="Sedekah"><span class="custom-check"></span><span>Sedekah</span></label>
             </div>
-            <button class="add-btn" aria-label="Tambah target">+</button>
+            <section class="target-actions" aria-label="Aksi target ibadah">
+                <button class="secondary-btn" id="open-target-history" type="button">Riwayat Target</button>
+                <button class="reset-history-btn" id="reset-target-today" type="button">Reset Hari Ini</button>
+            </section>
+            <button class="add-btn" id="open-target" aria-label="Tambah target">+</button>
         </div>
 
         <nav class="bottom-nav" aria-label="Navigasi utama">
@@ -135,7 +136,69 @@
             <button class="nav-btn" data-screen="tilawah"><span class="nav-icon">▤</span><span>Tilawah</span></button>
             <button class="nav-btn" data-screen="target"><span class="nav-icon">◎</span><span>Target</span></button>
         </nav>
+        <p class="app-feedback" id="app-feedback" role="status" aria-live="polite" hidden></p>
     </main>
+
+    <dialog class="app-dialog" id="settings-dialog" aria-labelledby="settings-title">
+        <div class="dialog-content">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Pengingat harian</p><h2 id="settings-title">Setelan Alarm</h2></div>
+                <button class="dialog-close" type="button" data-close-dialog aria-label="Tutup">×</button>
+            </div>
+            <p class="dialog-help">Atur waktu dan aktifkan pengingat untuk setiap waktu salat.</p>
+            <div class="alarm-settings-list" id="alarm-settings-list"></div>
+            <button class="secondary-btn" id="notification-button" type="button">Aktifkan notifikasi</button>
+            <p class="dialog-footnote" id="notification-status" role="status"></p>
+            <button class="secondary-btn" id="test-alarm" type="button">Tes suara alarm</button>
+            <p class="dialog-footnote">Aplikasi harus tetap terbuka agar alarm berjalan. Notifikasi dapat tertunda saat tab tidak aktif.</p>
+        </div>
+    </dialog>
+
+    <dialog class="app-dialog" id="note-dialog" aria-labelledby="note-title">
+        <form class="dialog-content" id="note-form">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Tilawah</p><h2 id="note-title">Catatan Bacaan</h2></div>
+                <button class="dialog-close" type="button" data-close-dialog aria-label="Tutup">×</button>
+            </div>
+            <label class="field-label" for="note-input">Catatan</label>
+            <textarea class="text-field" id="note-input" rows="4" maxlength="500" placeholder="Tulis ayat atau bagian yang ingin diingat..."></textarea>
+            <button class="primary-btn dialog-submit" type="submit">Simpan Catatan</button>
+        </form>
+    </dialog>
+
+    <dialog class="app-dialog" id="target-dialog" aria-labelledby="target-title">
+        <form class="dialog-content" id="target-form">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Amalan harian</p><h2 id="target-title">Tambah Target</h2></div>
+                <button class="dialog-close" type="button" data-close-dialog aria-label="Tutup">×</button>
+            </div>
+            <label class="field-label" for="target-input">Nama target</label>
+            <input class="text-field" id="target-input" type="text" maxlength="50" placeholder="Contoh: Membaca Al-Kahfi" required>
+            <button class="primary-btn dialog-submit" type="submit">Tambah Target</button>
+        </form>
+    </dialog>
+
+    <dialog class="app-dialog" id="tilawah-history-dialog" aria-labelledby="tilawah-history-title">
+        <div class="dialog-content">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Catatan harian</p><h2 id="tilawah-history-title">Riwayat Tilawah</h2></div>
+                <button class="dialog-close" type="button" data-close-dialog aria-label="Tutup">×</button>
+            </div>
+            <ul class="history-list" id="tilawah-history-list"></ul>
+            <button class="reset-history-btn" id="reset-tilawah-history" type="button">Reset Riwayat</button>
+        </div>
+    </dialog>
+
+    <dialog class="app-dialog" id="target-history-dialog" aria-labelledby="target-history-title">
+        <div class="dialog-content">
+            <div class="dialog-heading">
+                <div><p class="eyebrow">Catatan harian</p><h2 id="target-history-title">Riwayat Target</h2></div>
+                <button class="dialog-close" type="button" data-close-dialog aria-label="Tutup">×</button>
+            </div>
+            <ul class="history-list" id="target-history-list"></ul>
+            <button class="reset-history-btn" id="reset-target-history" type="button">Reset Riwayat</button>
+        </div>
+    </dialog>
 
     <script src="script.js"></script>
 </body>

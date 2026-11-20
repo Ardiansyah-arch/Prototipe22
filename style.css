@@ -45,7 +45,7 @@ h2 { font-size: 15px; }
 .arabic-mark { width: 66px; height: 66px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; font-size: 38px; }
 .progress-section { margin-bottom: 20px; }
 .progress-bar { height: 9px; background: #dde6e2; border-radius: 10px; overflow: hidden; }
-.progress-fill { width: 45%; height: 100%; background: var(--green); border-radius: 10px; }
+.progress-fill { width: 0; height: 100%; background: var(--green); border-radius: 10px; transition: width .25s ease; }
 .week-section h2 { margin-bottom: 12px; }
 .days { display: flex; justify-content: space-between; }
 .days div { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
@@ -64,3 +64,50 @@ h2 { font-size: 15px; }
 .nav-icon { height: 26px; font-size: 24px; line-height: 24px; }
 .nav-btn.active { color: var(--green); font-weight: 700; }
 @media (max-height: 680px) { body { align-items: flex-start; } }
+.profile-btn { font-size: 19px; }
+.app-dialog { width: min(330px, calc(100vw - 32px)); max-height: min(570px, calc(100vh - 32px)); margin: auto; padding: 0; border: 0; border-radius: 22px; background: #fff; color: var(--ink); box-shadow: 0 24px 70px rgba(20, 45, 38, .28); }
+.app-dialog::backdrop { background: rgba(15, 35, 29, .48); backdrop-filter: blur(3px); }
+.dialog-content { padding: 20px; overflow-y: auto; }
+.dialog-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.dialog-heading h2 { font-size: 20px; }
+.dialog-close { width: 34px; height: 34px; border: 0; border-radius: 50%; background: var(--mint); color: var(--green-dark); font-size: 23px; line-height: 1; cursor: pointer; }
+.dialog-help, .dialog-footnote { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.dialog-help { margin-bottom: 10px; }
+.dialog-footnote { margin-top: 9px; }
+.alarm-settings-list { display: flex; flex-direction: column; margin: 8px 0 14px; }
+.alarm-setting-row { min-height: 58px; display: grid; grid-template-columns: 1fr 86px 38px; align-items: center; gap: 7px; border-bottom: 1px solid var(--line); }
+.alarm-setting-info { display: flex; flex-direction: column; gap: 3px; font-size: 13px; font-weight: 600; }
+.alarm-setting-info small { color: var(--muted); font-size: 10px; font-weight: 400; }
+.alarm-time { width: 82px; height: 34px; padding: 4px; border: 1px solid var(--line); border-radius: 8px; color: var(--green-dark); font: inherit; font-size: 13px; }
+.switch-control { position: relative; display: inline-flex; width: 38px; height: 23px; cursor: pointer; }
+.switch-control input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.switch-track { width: 38px; height: 23px; border-radius: 20px; background: #d7dfdc; transition: background .15s ease; }
+.switch-track::after { content: ""; position: absolute; width: 17px; height: 17px; left: 3px; top: 3px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.18); transition: transform .15s ease; }
+.switch-control input:checked + .switch-track { background: var(--green); }
+.switch-control input:checked + .switch-track::after { transform: translateX(15px); }
+.switch-control input:focus-visible + .switch-track, button:focus-visible, .alarm-time:focus-visible, .text-field:focus-visible { outline: 3px solid rgba(39,121,107,.3); outline-offset: 2px; }
+.secondary-btn { width: 100%; min-height: 42px; border: 1px solid #c9ded7; border-radius: 11px; background: var(--mint); color: var(--green-dark); font-size: 13px; font-weight: 700; cursor: pointer; }
+.secondary-btn:disabled { opacity: .7; cursor: default; }
+.field-label { display: block; margin: 14px 0 7px; font-size: 13px; font-weight: 600; }
+.text-field { width: 100%; border: 1px solid #dce5e1; border-radius: 10px; padding: 11px 12px; color: var(--ink); font: inherit; font-size: 14px; resize: vertical; }
+.dialog-submit { margin-top: 14px; }
+.note-preview { margin-top: 12px; padding: 11px 12px; border-radius: 10px; background: var(--mint); color: var(--green-dark); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.nav-btn:focus-visible, .add-btn:focus-visible, .profile-btn:focus-visible, .primary-btn:focus-visible { outline: 3px solid rgba(39,121,107,.35); outline-offset: 2px; }
+.app-feedback { position: absolute; z-index: 6; left: 14px; right: 14px; bottom: 76px; padding: 11px 13px; border-radius: 11px; background: #243a34; color: #fff; font-size: 12px; line-height: 1.4; box-shadow: 0 5px 16px rgba(0,0,0,.2); }
+.tilawah-day { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; text-transform: capitalize; }
+.tilawah-day i { width: 28px; height: 28px; border: 1px solid #d7dfdc; border-radius: 50%; position: relative; }
+.tilawah-day.done i { background: var(--green); border-color: var(--green); }
+.tilawah-day.done i::after { content: "✓"; color: #fff; position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; font-size: 12px; }
+.tilawah-day.current i { outline: 2px solid rgba(39,121,107,.25); outline-offset: 2px; }
+.tilawah-day small { font-size: 10px; }
+#toggle-tilawah-day.is-complete { background: var(--green-dark); }
+.history-button { margin-top: 10px; }
+.history-list { max-height: 280px; overflow-y: auto; list-style: none; }
+.history-list li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.history-list .history-empty { color: var(--muted); text-align: center; padding: 20px 4px; }
+.reset-history-btn { width: 100%; min-height: 42px; margin-top: 16px; border: 1px solid #f0d7d2; border-radius: 11px; background: #fff7f5; color: #a44736; font-size: 13px; font-weight: 700; cursor: pointer; }
+.reset-history-btn:focus-visible { outline: 3px solid rgba(164,71,54,.25); outline-offset: 2px; }
+.target-actions { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 76px; }
+.target-actions .reset-history-btn { margin-top: 0; }
+.target-history-progress { display: block; margin-top: 4px; color: var(--green); font-size: 12px; }
+.target-history-names { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.5; }
