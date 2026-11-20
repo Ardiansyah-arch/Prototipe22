@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BU Maratus Ibadah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="phone-frame">
+        <div class="screen active" id="screen-beranda">
+            <header class="app-header">
+                <div>
+                    <p class="eyebrow">Assalamu'alaikum</p>
+                    <h1>BU Maratus</h1>
+                </div>
+                <button class="profile-btn" aria-label="Profil">B</button>
+            </header>
+
+            <section class="prayer-card">
+                <div class="prayer-card-top">
+                    <span>Salat berikutnya</span>
+                    <span class="status-badge">2 jam lagi</span>
+                </div>
+                <div class="next-prayer">
+                    <div>
+                        <strong>Zuhur</strong>
+                        <small>11:45</small>
+                    </div>
+                    <div class="moon-icon" aria-hidden="true">☾</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-heading">
+                    <h2>Amalan Hari Ini</h2>
+                    <span id="prayer-progress">0/5</span>
+                </div>
+                <div class="checkbox-list prayer-list">
+                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Subuh</span><small>04:10</small></label>
+                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Zuhur</span><small>11:45</small></label>
+                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Asar</span><small>15:12</small></label>
+                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Magrib</span><small>17:55</small></label>
+                    <label><input type="checkbox" data-prayer><span class="custom-check"></span><span>Isya</span><small>19:05</small></label>
+                </div>
+            </section>
+        </div>
+
+        <div class="screen" id="screen-jadwal">
+            <header class="screen-header">
+                <p class="eyebrow">20 November 2026</p>
+                <h1>Jadwal Salat</h1>
+            </header>
+            <div class="location">Bojonegoro, Jawa Timur</div>
+            <section class="schedule-card">
+                <div class="schedule-item">
+                    <div class="prayer-name"><span class="schedule-dot"></span><span>Subuh</span></div>
+                    <span class="time">04:10</span>
+                </div>
+                <div class="schedule-item">
+                    <div class="prayer-name"><span class="schedule-dot"></span><span>Zuhur</span></div>
+                    <span class="time">11:45</span>
+                </div>
+                <div class="schedule-item">
+                    <div class="prayer-name"><span class="schedule-dot"></span><span>Asar</span></div>
+                    <span class="time">15:12</span>
+                </div>
+                <div class="schedule-item">
+                    <div class="prayer-name"><span class="schedule-dot"></span><span>Magrib</span></div>
+                    <span class="time">17:55</span>
+                </div>
+                <div class="schedule-item">
+                    <div class="prayer-name"><span class="schedule-dot"></span><span>Isya</span></div>
+                    <span class="time">19:05</span>
+                </div>
+            </section>
+        </div>
+
+        <div class="screen" id="screen-tilawah">
+            <header class="screen-header">
+                <p class="eyebrow">Al-Qur'an</p>
+                <h1>Tilawah</h1>
+            </header>
+            <section class="tilawah-card">
+                <div>
+                    <p>Terakhir dibaca</p>
+                    <strong>Juz 3</strong>
+                    <small>Halaman 45</small>
+                </div>
+                <span class="arabic-mark">ق</span>
+            </section>
+            <section class="progress-section">
+                <div class="section-heading">
+                    <h2>Progres Hari Ini</h2>
+                    <span>45%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+            </section>
+            <section class="week-section">
+                <h2>Seminggu Terakhir</h2>
+                <div class="days">
+                    <div><span>M</span><i class="done"></i></div>
+                    <div><span>S</span><i class="done"></i></div>
+                    <div><span>S</span><i class="done"></i></div>
+                    <div><span>R</span><i class="done"></i></div>
+                    <div><span>K</span><i class="current"></i></div>
+                    <div><span>J</span><i></i></div>
+                    <div><span>S</span><i></i></div>
+                </div>
+            </section>
+            <button class="primary-btn">Tambah Catatan</button>
+        </div>
+
+        <div class="screen" id="screen-target">
+            <header class="screen-header">
+                <p class="eyebrow">November 2026</p>
+                <h1>Target Ibadah</h1>
+            </header>
+            <div class="target-summary">
+                <strong id="target-progress">0</strong>
+                <span>dari 4 target selesai</span>
+            </div>
+            <div class="checkbox-list target-list">
+                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Salat Duha</span></label>
+                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Puasa Senin-Kamis</span></label>
+                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Zikir pagi</span></label>
+                <label><input type="checkbox" data-target><span class="custom-check"></span><span>Sedekah</span></label>
+            </div>
+            <button class="add-btn" aria-label="Tambah target">+</button>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Navigasi utama">
+            <button class="nav-btn active" data-screen="beranda"><span class="nav-icon">⌂</span><span>Beranda</span></button>
+            <button class="nav-btn" data-screen="jadwal"><span class="nav-icon">◷</span><span>Jadwal</span></button>
+            <button class="nav-btn" data-screen="tilawah"><span class="nav-icon">▤</span><span>Tilawah</span></button>
+            <button class="nav-btn" data-screen="target"><span class="nav-icon">◎</span><span>Target</span></button>
+        </nav>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
